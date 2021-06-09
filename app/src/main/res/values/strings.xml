@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Notepad</string>
+    <string name="notepad">Notepad</string>
+    <string name="all_notes">All notes</string>
+</resources>
