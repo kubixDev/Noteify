@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
     @Override
     public void noteLongClicked(NoteEntity noteEntity, int position) {
         longClickedNotePosition = position;
-        Toast.makeText(this, String.valueOf(position) ,Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, String.valueOf(position) ,Toast.LENGTH_SHORT).show();
 
 
 //        dziala, przerobic na okno dialogowe
@@ -111,7 +111,6 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
 
         deleteDialog(noteEntity, longClickedNotePosition);
     }
-
 
 
     //////////////////////////////////////
@@ -129,12 +128,21 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
                 deleteNoteDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
             }
 
+
+            // blokuje inne mozliwosci wyjscia z alertdialog oprocz przyciskow
+            deleteNoteDialog.setCancelable(false);
+            deleteNoteDialog.setCanceledOnTouchOutside(false);
+
+
             view.findViewById(R.id.buttonDelete).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
                     // zwykly asynctask powodowal bledy, lambda dziala
+                    // problem z usuwaniem wielu notatek z bazy danych, mozna usunac tylko jedna notatke na raz, reszta usuwa sie tylko wizualnie
+                    // todo tymczasowo rozwiazane poprzez reload MainActivity
                     AsyncTask.execute(() -> NotepadDatabase.getNoteDatabase(getApplicationContext()).notepadDao().deleteNote(noteEntity));
+
 
                     // usuwa konkretna notatke z listy, zmniejsza licznik, ustawia label notatek, informuje o zmianie w database
                     noteList.remove(position);
@@ -142,10 +150,13 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
                     noteCounterSetLabel();
                     noteAdapter.notifyDataSetChanged();
 
+
                     // przeladowuje recyclera i konczy okno dialogowe
                     deleteNoteDialog.dismiss();
 
-                    // todo naprawic problem z usuwaniem wielu notatek z bazy danych, mozna usunac tylko jedna notatke na raz, reszta usuwa sie tylko wizualnie
+
+                    // reloaduje MainActivity, tymczasowe
+                    reloadActivity();
                 }
             });
 
@@ -153,6 +164,7 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
                 @Override
                 public void onClick(View v) {
                     deleteNoteDialog.dismiss();
+                    reloadActivity();
                 }
             });
         }
@@ -166,12 +178,45 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
     }
 
 
-//    @Override
-//    public void onResume(){
-//        super.onResume();
-//        noteRecycler.removeAllViews();
-//        noteAdapter.notifyDataSetChanged();
-//    }
+    /////////////////////
+    // METODA DELETENOTE
+    /////////////////////
+    // todo do poprawienia, sa bledy w przeciwienstwie do lambdy
+    private void deleteNote(NoteEntity noteEntity, int position) {
+
+        @SuppressLint("StaticFieldLeak")
+        class DeleteNoteClass extends AsyncTask<Void, Void, Void> {
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+                NotepadDatabase.getNoteDatabase(getApplicationContext()).notepadDao().deleteNote(noteEntity);
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+
+                noteList.remove(position);
+                noteCounter--;
+                noteCounterSetLabel();
+                noteAdapter.notifyDataSetChanged();
+            }
+        }
+
+        new DeleteNoteClass().execute();
+    }
+
+
+    ////////////////////////////
+    // METODA RELOAD ACTIVITY
+    ////////////////////////////
+    public void reloadActivity() {
+        Intent intent = new Intent(MainActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+        overridePendingTransition(0, 0);
+    }
 
 
     ////////////////////////////
@@ -224,6 +269,7 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
 
                         noteCounter++;
                         noteCounterSetLabel();
+                        reloadActivity();
                         break;
                     }
 
@@ -233,6 +279,7 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
                         noteList.remove(clickedNotePosition);
                         noteList.add(clickedNotePosition, noteEntities.get(clickedNotePosition));
                         noteAdapter.notifyItemChanged(clickedNotePosition);
+                        reloadActivity();
                         break;
                     }
                 }

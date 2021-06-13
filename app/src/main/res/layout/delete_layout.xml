@@ -6,7 +6,7 @@
     android:background="@drawable/note_background"
     android:backgroundTint="?attr/colorSecondaryVariant"
     android:layout_gravity="bottom"
-    android:paddingBottom="@dimen/_10sdp"
+    android:paddingBottom="@dimen/_5sdp"
     android:id="@+id/layoutDeleteNoteBox"
     app:layout_constraintBottom_toTopOf="parent">
 
@@ -18,7 +18,7 @@
         android:text="Delete note?"
         android:textSize="@dimen/_19sdp"
         android:fontFamily="@font/tommy_medium"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_25sdp"
         android:layout_marginLeft="@dimen/_22sdp"
         android:textColor="?attr/colorOnPrimary"
         ></TextView>
@@ -49,8 +49,8 @@
         android:textSize="@dimen/_14sdp"
         android:fontFamily="@font/tommy_medium"
         style="?android:attr/borderlessButtonStyle"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_15sdp"
         android:textAllCaps="false"
         ></Button>
@@ -67,8 +67,8 @@
         android:textSize="@dimen/_14sdp"
         android:fontFamily="@font/tommy_medium"
         style="?android:attr/borderlessButtonStyle"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_15sdp"
         android:textAllCaps="false"
         ></Button>
