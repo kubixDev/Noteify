@@ -7,14 +7,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -78,6 +83,30 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
         // metoda getNote wywolywana jest na starcie aplikacji (onCreate)
         // przekazany jest request code, ktory odpowiada za wyswietlenie wszystkich notatek na poczatku
         getNote(displayNotesCode);
+
+
+        // odpowiada za dzialanie paska wyszukiwania
+        EditText searchBar = findViewById(R.id.searchBar);
+        searchBar.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // jak zmieni sie tekst, to timer sie resetuje (aby nie szukalo od razu)
+                noteAdapter.cancelTimer();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // uzywa metody szukania notatki tylko gdy lista nie jest pusta
+                if (noteList.size() != 0) {
+                    noteAdapter.searchNotes(s.toString());
+                }
+            }
+        });
     }
 
 

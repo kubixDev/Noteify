@@ -3,10 +3,12 @@ package com.kubixdev.notepad.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -39,6 +41,7 @@ public class NoteEditorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+                closeKeyboard();
             }
         });
 
@@ -50,6 +53,7 @@ public class NoteEditorActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // wywoluje metode zapisu notatki przy nacisnieciu
                 saveNote();
+                closeKeyboard();
             }
         });
 
@@ -61,6 +65,19 @@ public class NoteEditorActivity extends AppCompatActivity {
 
             // wywoluje metode aktualizacji notatki
             setNoteUpdate();
+        }
+    }
+
+
+    ////////////////////////
+    // METODA HIDE KEYBOARD
+    ////////////////////////
+    // aby nie uruchamiala sie ponownie przy powrocie do MainActivity
+    public void closeKeyboard() {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
 

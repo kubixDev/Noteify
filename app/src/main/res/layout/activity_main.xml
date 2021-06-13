@@ -37,13 +37,49 @@
         android:textColor="?attr/colorOnPrimary"
         />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/noteCount"
+        android:background="@drawable/search_background"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:backgroundTint="?attr/colorSecondaryVariant"
+        android:id="@+id/searchLayout">
+
+        <ImageView
+            android:layout_height="@dimen/_22sdp"
+            android:layout_width="@dimen/_22sdp"
+            android:src="@drawable/ic_search"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            app:tint="?attr/colorOnPrimary"></ImageView>
+
+        <EditText
+            android:id="@+id/searchBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:hint="Search"
+            android:fontFamily="@font/tommy_regular"
+            android:textSize="@dimen/_16sdp"
+            android:background="@android:color/transparent"
+            android:textColor="?attr/colorOnPrimary"
+            android:inputType="text"
+            android:focusableInTouchMode="true"></EditText>
+
+    </LinearLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/noteRecycler"
         android:layout_below="@+id/buttonAddNote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/noteCount"
+        app:layout_constraintTop_toBottomOf="@id/searchLayout"
         android:clipToPadding="false"
         android:layout_marginStart="@dimen/_1sdp"
         android:layout_marginEnd="@dimen/_1sdp"

@@ -1,5 +1,7 @@
 package com.kubixdev.notepad.adapters;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,7 +10,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.util.StringUtil;
 
 import com.kubixdev.notepad.R;
 import com.kubixdev.notepad.entities.NoteEntity;
@@ -16,8 +17,10 @@ import com.kubixdev.notepad.listeners.NoteListener;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewholder> {
@@ -25,11 +28,14 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewholder
 
     private List<NoteEntity> notes;
     private NoteListener noteListener;
+    private Timer timer;
+    private List<NoteEntity> notesSearchedList;
 
 
     public NoteAdapter(List<NoteEntity> notes, NoteListener noteListener) {
         this.notes = notes;
         this.noteListener = noteListener;
+        notesSearchedList = notes;
     }
 
 
@@ -104,7 +110,64 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewholder
         // w note_layout zapobiega temu rowniez android:maxLines
         void setNote(NoteEntity noteEntity) {
             noteLayoutTitle.setText(noteEntity.getNoteTitle());
-            noteLayoutBody.setText(StringUtils.abbreviate(noteEntity.getNoteBody(), 80));
+            noteLayoutBody.setText(StringUtils.abbreviate(noteEntity.getNoteBody(), 120));
         }
     }
+
+
+
+    ///////////////////////
+    // METODA SEARCH NOTES
+    ///////////////////////
+    public void searchNotes(final String keyword) {
+
+        // https://developer.android.com/reference/java/util/Timer
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+
+                // jezeli nic nie jest wpisane, to pokazuje wszystkie notatki
+                if (keyword.trim().isEmpty()) {
+                    notes = notesSearchedList;
+                }
+
+
+                // w innym wypadku, kazda notatka spelniajaca kryteria wyszukiwania (zawiera tekst w tytule albo body notatki)
+                // jest dodawana do tymczasowej arraylisty
+                else {
+                    ArrayList<NoteEntity> temporaryNotes = new ArrayList<>();
+
+                    for (NoteEntity note: notesSearchedList
+                         ) {
+
+                        if (note.getNoteTitle().toLowerCase().contains(keyword.toLowerCase()) || note.getNoteBody().toLowerCase().contains(keyword.toLowerCase())) {
+                            temporaryNotes.add(note);
+                        }
+                    }
+
+                    // ustawia liste notatek jako tymczasowa arrayliste z konkretnymi wyszukiwaniami
+                    notes = temporaryNotes;
+                }
+
+                // powiadamia o zmienionym datasecie, gdy wyniki wyszukiwania sa zawezone
+                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        notifyDataSetChanged();
+                    }
+                });
+
+            }
+        }, 400);
+    }
+
+
+    // resetuje timer pola wyszukiwania
+    public void cancelTimer() {
+        if (timer != null) {
+            timer.cancel();
+        }
+    }
+
 }
