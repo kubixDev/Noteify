@@ -65,7 +65,7 @@
             android:layout_marginEnd="@dimen/_10sdp"
             android:hint="Search"
             android:fontFamily="@font/tommy_regular"
-            android:textSize="@dimen/_16sdp"
+            android:textSize="@dimen/_15sdp"
             android:background="@android:color/transparent"
             android:textColor="?attr/colorOnPrimary"
             android:inputType="text"
@@ -83,10 +83,11 @@
         android:clipToPadding="false"
         android:layout_marginStart="@dimen/_1sdp"
         android:layout_marginEnd="@dimen/_1sdp"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_25sdp"
         android:paddingStart="0dp"
         android:paddingBottom="@dimen/_170sdp"
         android:scrollbarStyle="outsideOverlay"
+        android:hapticFeedbackEnabled="true"
         ></androidx.recyclerview.widget.RecyclerView>
 
 <!--    <Button-->

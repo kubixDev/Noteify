@@ -2,6 +2,7 @@ package com.kubixdev.notepad.adapters;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,11 +67,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewholder
         holder.noteLayout.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+                v.setHapticFeedbackEnabled(true);
                 noteListener.noteLongClicked(notes.get(position), position);
-
-//                int currPosition = position;
-//                notes.remove(currPosition);
-//                notifyItemRemoved(currPosition);
 
                 return true;
             }
