@@ -1,4 +1,3 @@
-
 <img src="https://i.imgur.com/iMLYmjM.png" width="400"/>
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-java.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/built-for-android.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
@@ -34,11 +33,12 @@ The project uses
 
 ## Preview
 
-<img src="https://i.imgur.com/MOh4YS6.png" width="220"/>
-<img src="https://i.imgur.com/ru9Ks6p.png" width="220"/>
-<img src="https://i.imgur.com/DtDtEFX.png" width="220"/>
-<img src="https://i.imgur.com/AQdhUBK.png" width="220"/>
+<p float="left">
+  <img src="https://i.imgur.com/MOh4YS6.png" width="220"/>
+  <img src="https://i.imgur.com/ru9Ks6p.png" width="220"/>
+  <img src="https://i.imgur.com/DtDtEFX.png" width="220"/>
+  <img src="https://i.imgur.com/AQdhUBK.png" width="220"/>
+</p>
 
 
-The "MADE TOMMY" font was provided by madetype
-Application design is based on Samsung's One UI principles
+The "MADE TOMMY" font was provided by madetype. Application design is based on Samsung's One UI principles.
