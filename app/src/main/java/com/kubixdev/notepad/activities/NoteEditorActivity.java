@@ -5,8 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.StyleSpan;
+import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -56,6 +61,43 @@ public class NoteEditorActivity extends AppCompatActivity {
                 closeKeyboard();
             }
         });
+
+
+        // przycisk bold
+        ImageView buttonBold = findViewById(R.id.buttonBold);
+        buttonBold.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Spannable spannable = new SpannableStringBuilder(inputNote.getText());
+                spannable.setSpan(new StyleSpan(Typeface.BOLD), inputNote.getSelectionStart(), inputNote.getSelectionEnd(), 0);
+                inputNote.setText(spannable);
+            }
+        });
+
+
+        // przycisk italics
+        ImageView buttonItalic = findViewById(R.id.buttonItalic);
+        buttonItalic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Spannable spannable = new SpannableStringBuilder(inputNote.getText());
+                spannable.setSpan(new StyleSpan(Typeface.ITALIC), inputNote.getSelectionStart(), inputNote.getSelectionEnd(), 0);
+                inputNote.setText(spannable);
+            }
+        });
+
+
+        // przycisk underline
+        ImageView buttonUnderline = findViewById(R.id.buttonUnderline);
+        buttonUnderline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Spannable spannable = new SpannableStringBuilder(inputNote.getText());
+                spannable.setSpan(new UnderlineSpan(), inputNote.getSelectionStart(), inputNote.getSelectionEnd(), 0);
+                inputNote.setText(spannable);
+            }
+        });
+
 
 
         // domyslnie notatka nie jest aktualizowana, stad wartosc false

@@ -34,10 +34,13 @@ The project uses
 ## Preview
 
 <p float="left">
-  <img src="https://i.imgur.com/MOh4YS6.png" width="220"/>
-  <img src="https://i.imgur.com/ru9Ks6p.png" width="220"/>
-  <img src="https://i.imgur.com/DtDtEFX.png" width="220"/>
-  <img src="https://i.imgur.com/AQdhUBK.png" width="220"/>
+  <img src="https://i.imgur.com/MOh4YS6.png" width="230"/>
+  <img src="https://i.imgur.com/ru9Ks6p.png" width="230"/>
+</p>
+
+<p float="left">
+  <img src="https://i.imgur.com/DtDtEFX.png" width="230"/>
+  <img src="https://i.imgur.com/AQdhUBK.png" width="230"/>
 </p>
 
 

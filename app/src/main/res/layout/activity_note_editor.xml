@@ -92,23 +92,57 @@
 
     </ScrollView>
 
-<!--    <RelativeLayout-->
-<!--        android:id="@+id/toolLayout"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="@dimen/_40sdp"-->
-<!--        android:background="@drawable/orange_background"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        android:gravity="center_vertical">-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/noteBody"
+        android:id="@+id/toolLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_37sdp"
+        android:background="@drawable/search_background"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/_60sdp"
+        android:layout_marginEnd="@dimen/_60sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp">
 
-<!--        <ImageView-->
-<!--            android:id="@+id/buttonDelete"-->
-<!--            android:layout_width="@dimen/_25sdp"-->
-<!--            android:layout_height="@dimen/_25sdp"-->
-<!--            android:src="@drawable/ic_delete"-->
-<!--            app:tint="@color/white"-->
-<!--            android:layout_alignParentRight="true"-->
-<!--            android:layout_marginRight="@dimen/_20sdp"></ImageView>-->
+        <ImageView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/buttonItalic"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/buttonBold"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@drawable/ic_bold"
+            app:tint="?attr/colorOnPrimary"
+            ></ImageView>
 
-<!--    </RelativeLayout>-->
+        <ImageView
+            app:layout_constraintStart_toEndOf="@id/buttonBold"
+            app:layout_constraintEnd_toStartOf="@id/buttonUnderline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/buttonItalic"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@drawable/ic_italic"
+            app:tint="?attr/colorOnPrimary"
+            android:gravity="center"></ImageView>
+
+        <ImageView
+            app:layout_constraintStart_toEndOf="@id/buttonItalic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/buttonUnderline"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@drawable/ic_underline"
+            app:tint="?attr/colorOnPrimary"
+            android:gravity="center"></ImageView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
