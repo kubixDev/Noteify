@@ -1,4 +1,4 @@
-package com.kubixdev.notepad;
+package com.kubixdev.noteify;
 
 import android.content.Context;
 

@@ -1,4 +1,4 @@
-package com.kubixdev.notepad.database;
+package com.kubixdev.noteify.database;
 
 
 import android.content.Context;
@@ -6,8 +6,8 @@ import android.content.Context;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.kubixdev.notepad.dao.NotepadDao;
-import com.kubixdev.notepad.entities.NoteEntity;
+import com.kubixdev.noteify.dao.NotepadDao;
+import com.kubixdev.noteify.entities.NoteEntity;
 
 
 @androidx.room.Database(entities = NoteEntity.class, version = 1, exportSchema = false)

@@ -1,4 +1,4 @@
-package com.kubixdev.notepad.entities;
+package com.kubixdev.noteify.entities;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

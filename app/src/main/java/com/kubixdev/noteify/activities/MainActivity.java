@@ -1,4 +1,4 @@
-package com.kubixdev.notepad.activities;
+package com.kubixdev.noteify.activities;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -7,12 +7,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Vibrator;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
@@ -20,17 +18,15 @@ import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.kubixdev.notepad.R;
-import com.kubixdev.notepad.adapters.NoteAdapter;
-import com.kubixdev.notepad.database.NotepadDatabase;
-import com.kubixdev.notepad.entities.NoteEntity;
-import com.kubixdev.notepad.listeners.NoteListener;
+import com.kubixdev.noteify.R;
+import com.kubixdev.noteify.adapters.NoteAdapter;
+import com.kubixdev.noteify.database.NotepadDatabase;
+import com.kubixdev.noteify.entities.NoteEntity;
+import com.kubixdev.noteify.listeners.NoteListener;
 
 import java.util.ArrayList;
 import java.util.List;

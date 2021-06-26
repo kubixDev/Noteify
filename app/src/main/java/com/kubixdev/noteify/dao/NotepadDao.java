@@ -1,11 +1,11 @@
-package com.kubixdev.notepad.dao;
+package com.kubixdev.noteify.dao;
 
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import com.kubixdev.notepad.entities.NoteEntity;
+import com.kubixdev.noteify.entities.NoteEntity;
 
 import java.util.List;
 

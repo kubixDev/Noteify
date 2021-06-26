@@ -1,8 +1,7 @@
-package com.kubixdev.notepad.adapters;
+package com.kubixdev.noteify.adapters;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.kubixdev.notepad.R;
-import com.kubixdev.notepad.entities.NoteEntity;
-import com.kubixdev.notepad.listeners.NoteListener;
+import com.kubixdev.noteify.R;
+import com.kubixdev.noteify.entities.NoteEntity;
+import com.kubixdev.noteify.listeners.NoteListener;
 
 import org.apache.commons.lang3.StringUtils;
 

@@ -1,4 +1,4 @@
-package com.kubixdev.notepad.activities;
+package com.kubixdev.noteify.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,9 +19,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.kubixdev.notepad.R;
-import com.kubixdev.notepad.database.NotepadDatabase;
-import com.kubixdev.notepad.entities.NoteEntity;
+import com.kubixdev.noteify.R;
+import com.kubixdev.noteify.database.NotepadDatabase;
+import com.kubixdev.noteify.entities.NoteEntity;
 
 public class NoteEditorActivity extends AppCompatActivity {
 
@@ -63,40 +63,43 @@ public class NoteEditorActivity extends AppCompatActivity {
         });
 
 
-        // przycisk bold
-        ImageView buttonBold = findViewById(R.id.buttonBold);
-        buttonBold.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Spannable spannable = new SpannableStringBuilder(inputNote.getText());
-                spannable.setSpan(new StyleSpan(Typeface.BOLD), inputNote.getSelectionStart(), inputNote.getSelectionEnd(), 0);
-                inputNote.setText(spannable);
-            }
-        });
 
 
-        // przycisk italics
-        ImageView buttonItalic = findViewById(R.id.buttonItalic);
-        buttonItalic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Spannable spannable = new SpannableStringBuilder(inputNote.getText());
-                spannable.setSpan(new StyleSpan(Typeface.ITALIC), inputNote.getSelectionStart(), inputNote.getSelectionEnd(), 0);
-                inputNote.setText(spannable);
-            }
-        });
-
-
-        // przycisk underline
-        ImageView buttonUnderline = findViewById(R.id.buttonUnderline);
-        buttonUnderline.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Spannable spannable = new SpannableStringBuilder(inputNote.getText());
-                spannable.setSpan(new UnderlineSpan(), inputNote.getSelectionStart(), inputNote.getSelectionEnd(), 0);
-                inputNote.setText(spannable);
-            }
-        });
+        // TODO: 26.06.2021 znalezc sposob na przechowywanie formatowania, nie zapisuje sie w android room
+//        // przycisk bold
+//        ImageView buttonBold = findViewById(R.id.buttonBold);
+//        buttonBold.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Spannable spannable = new SpannableStringBuilder(inputNote.getText());
+//                spannable.setSpan(new StyleSpan(Typeface.BOLD), inputNote.getSelectionStart(), inputNote.getSelectionEnd(), 0);
+//                inputNote.setText(spannable);
+//            }
+//        });
+//
+//
+//        // przycisk italics
+//        ImageView buttonItalic = findViewById(R.id.buttonItalic);
+//        buttonItalic.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Spannable spannable = new SpannableStringBuilder(inputNote.getText());
+//                spannable.setSpan(new StyleSpan(Typeface.ITALIC), inputNote.getSelectionStart(), inputNote.getSelectionEnd(), 0);
+//                inputNote.setText(spannable);
+//            }
+//        });
+//
+//
+//        // przycisk underline
+//        ImageView buttonUnderline = findViewById(R.id.buttonUnderline);
+//        buttonUnderline.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Spannable spannable = new SpannableStringBuilder(inputNote.getText());
+//                spannable.setSpan(new UnderlineSpan(), inputNote.getSelectionStart(), inputNote.getSelectionEnd(), 0);
+//                inputNote.setText(spannable);
+//            }
+//        });
 
 
 
