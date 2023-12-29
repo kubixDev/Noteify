@@ -1,0 +1,25 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.Noteify" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <!-- MAIN COLOR ACCENT -->
+        <item name="colorPrimary">@color/lightorange</item>
+
+        <!-- BACKGROUND COLOR -->
+        <item name="colorPrimaryVariant">@color/white</item>
+
+        <!-- MAIN FONT COLOR -->
+        <item name="colorOnPrimary">@color/darkgrey</item>
+
+        <!-- CONTRAST FONT COLOR -->
+        <item name="colorSecondary">@color/lightorange</item>
+
+        <!-- NOTE BACKGROUND -->
+        <item name="colorSecondaryVariant">@color/ioswhiteBG</item>
+
+        <!-- STATUSBAR -->
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnSecondary</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>

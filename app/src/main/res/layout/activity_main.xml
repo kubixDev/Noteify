@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimaryVariant"
+    tools:context=".activities.MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/notepadTitle"
+        android:layout_marginStart="@dimen/_19sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginEnd="@dimen/_19sdp"
+        android:fontFamily="@font/tommy_medium"
+        android:includeFontPadding="false"
+        android:text="All notes"
+        android:textSize="@dimen/_33ssp"
+        android:textColor="?attr/colorOnPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/noteCount"
+        android:layout_marginStart="@dimen/_19sdp"
+        android:layout_marginTop="@dimen/_1sdp"
+        android:layout_marginEnd="@dimen/_19sdp"
+        android:fontFamily="@font/tommy_light"
+        app:layout_constraintTop_toBottomOf="@id/notepadTitle"
+        android:includeFontPadding="false"
+        android:text="- notes"
+        android:textSize="@dimen/_15sdp"
+        android:textColor="?attr/colorOnPrimary"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/noteCount"
+        android:background="@drawable/search_background"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:backgroundTint="?attr/colorSecondaryVariant"
+        android:id="@+id/searchLayout">
+
+        <ImageView
+            android:layout_height="@dimen/_22sdp"
+            android:layout_width="@dimen/_22sdp"
+            android:src="@drawable/ic_search"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            app:tint="?attr/colorOnPrimary"></ImageView>
+
+        <EditText
+            android:id="@+id/searchBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:hint="Search"
+            android:fontFamily="@font/tommy_regular"
+            android:textSize="@dimen/_15sdp"
+            android:background="@android:color/transparent"
+            android:textColor="?attr/colorOnPrimary"
+            android:inputType="text"
+            android:focusableInTouchMode="true"></EditText>
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/noteRecycler"
+        android:layout_below="@+id/buttonAddNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/searchLayout"
+        android:clipToPadding="false"
+        android:layout_marginStart="@dimen/_1sdp"
+        android:layout_marginEnd="@dimen/_1sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:paddingStart="0dp"
+        android:paddingBottom="@dimen/_170sdp"
+        android:scrollbarStyle="outsideOverlay"
+        android:hapticFeedbackEnabled="true"
+        ></androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/buttonAddNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_add"
+        android:layout_margin="@dimen/_30sdp"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

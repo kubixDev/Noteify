@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/dialog_background"
+    android:backgroundTint="?attr/colorSecondaryVariant"
+    android:layout_gravity="bottom"
+    android:paddingBottom="@dimen/_5sdp"
+    android:id="@+id/layoutDeleteNoteBox"
+    app:layout_constraintBottom_toTopOf="parent">
+
+    <TextView
+        android:id="@+id/noticeTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete note?"
+        android:textSize="@dimen/_19sdp"
+        android:fontFamily="@font/tommy_medium"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginLeft="@dimen/_22sdp"
+        android:textColor="?attr/colorOnPrimary"
+        ></TextView>
+
+    <TextView
+        android:id="@+id/noticeSubtitle"
+        app:layout_constraintTop_toBottomOf="@id/noticeTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This note will be permanently deleted."
+        android:textSize="@dimen/_13sdp"
+        android:fontFamily="@font/tommy_regular"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_22sdp"
+        android:textColor="?attr/colorOnPrimary"
+
+        ></TextView>
+
+    <Button
+        android:id="@+id/buttonCancel"
+        app:layout_constraintTop_toBottomOf="@id/noticeSubtitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:text="Cancel"
+        android:textColor="@color/lightorange"
+        android:textSize="@dimen/_15sdp"
+        android:fontFamily="@font/tommy_medium"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_21sdp"
+        android:layout_marginLeft="@dimen/_17sdp"
+        android:textAllCaps="false"
+        ></Button>
+
+    <View
+        android:layout_width="@dimen/_1sdp"
+        android:layout_height="@dimen/_20sdp"
+        app:layout_constraintStart_toEndOf="@id/buttonCancel"
+        app:layout_constraintEnd_toStartOf="@id/buttonDelete"
+        app:layout_constraintTop_toBottomOf="@id/noticeSubtitle"
+        android:layout_marginTop="@dimen/_29sdp"
+        android:background="@color/lightgrey"
+        ></View>
+
+    <Button
+        android:id="@+id/buttonDelete"
+        app:layout_constraintTop_toBottomOf="@id/noticeSubtitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:text="Delete"
+        android:textColor="@color/lightorange"
+        android:textSize="@dimen/_15sdp"
+        android:fontFamily="@font/tommy_medium"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_21sdp"
+        android:layout_marginRight="@dimen/_17sdp"
+        android:textAllCaps="false"
+        ></Button>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

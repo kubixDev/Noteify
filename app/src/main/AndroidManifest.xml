@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kubixdev.noteify">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Noteify"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Noteify">
+        <activity android:name="com.kubixdev.noteify.activities.NoteEditorActivity"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait"
+        />
+
+        <activity android:name="com.kubixdev.noteify.activities.MainActivity"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
