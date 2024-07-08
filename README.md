@@ -58,4 +58,4 @@ The project uses
 
 All rights reserved. The Noteify app, its code and associated files in this repository are protected by copyright law. No part of this application may be reproduced, distributed, or transmitted in any form or by any means, without the prior written permission of the repository owner.
 
-The "MADE TOMMY" font was provided by madetype
+The "MADE TOMMY" font, provided by Madetype, is used in this project under a free license that permits both personal and non-commercial use.
